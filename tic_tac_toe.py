@@ -1,24 +1,32 @@
-Board=[["","",""],["","",""],["","",""]]
+import os
+
+Board=[["","",""],
+       ["","",""],
+       ["","",""]]
 player="X"
 status=False
 count=0
 
 
 for i in range(100):
+    
     print(f'{player} this is your chance:')
     row=int(input("Enter row value..0,1,2:"))
     col=int(input("Enter col value..0,1,2:"))
-
+    os.system('cls')
 
 # Validate input and check if the cell is empty
     if row in range(3) and col in range(3):
      if Board[row][col]=='': 
           Board[row][col]=player
-          print(Board)
+          for r in Board:
+           print(r)
           count+=1
+         
      else:
           print('Enter valid index')
           continue
+          
 
 
 # Check for a win
@@ -52,6 +60,6 @@ for i in range(100):
         player = "0"
     else:
         player = "X"
-      
+         
 else:
    print("Game is Over")
